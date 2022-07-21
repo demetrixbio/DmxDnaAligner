@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src/std.fs" />
+    <Compile Include="src/imports.fs" />
+    <Compile Include="src/utils.fs" />
+    <Compile Include="src/biolib.fs" />
+    <!-- <Compile Include="dna.fs" /> -->
+    <Compile Include="src/dnaAlign.fs" />
+    <Compile Include="src/main.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="4.0.0-*" />
+  </ItemGroup>
+</Project>
