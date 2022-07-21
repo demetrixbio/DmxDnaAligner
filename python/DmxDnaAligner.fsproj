@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="utils.fs" />
+    <Compile Include="biolib.fs" />
+    <Compile Include="dna.fs" />
+    <Compile Include="dnaAlign.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+</Project>
