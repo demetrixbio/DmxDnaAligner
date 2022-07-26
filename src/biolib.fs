@@ -30,7 +30,7 @@ let codon2aa (bases : char []) =
                     | 'A' | 'a' -> 2
                     | 'G' | 'g' -> 3
                     | _ -> 
-                        failwith "XXX" // (sprintf "bad base '%c'in codon2aa " x)
+                        failwith $"bad base '{x}'in codon2aa"
     
         let i = (baseMap bases.[0]) * 16 + (baseMap bases.[1]) * 4 + (baseMap bases.[2])                
         let aa = "FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG"
@@ -96,7 +96,7 @@ let aaLetterToSymbolic (aa:char) =
         | 'Y' -> Tyr
         | 'W' -> Trp
         | '*' -> End
-        | _ -> failwith "XXX" // f "ERROR: unknown amino acid letter '%c' in aaLetterToSymbolic" aa
+        | _ -> failwith $"ERROR: unknown amino acid letter '{aa}' in aaLetterToSymbolic"
 
 
 /// Translates amino acid represented with one character to a trigram, eg 'W' -> "Trp" , '*' -> "End"
@@ -124,7 +124,7 @@ let aaTrigramToSymbolic (aa:string) =
     | "Tyr" -> Tyr
     | "Trp" -> Trp
     | "End" -> End
-    | _ -> failwith "XXX" // f "bad aa '%s' in aaLetterToSymbolic" aa
+    | _ -> failwith $"bad aa '{aa}' in aaLetterToSymbolic"
 
 /// Translates amino acid represented with one character to a trigram, eg 'W' -> "Trp" , '*' -> "End"
 let aaLetterToTrigram (aa:char) =
@@ -151,7 +151,7 @@ let aaLetterToTrigram (aa:char) =
     | 'Y' -> "Tyr"
     | 'W' -> "Trp"
     | '*' -> "End"
-    | _ -> failwith "XXX" //f "bad aa '%c'" aa
+    | _ -> failwith "bad aa '{aa}'"
 
 /// Check is the character is a proper DNA base
 let isDnaBaseStrict x = 
@@ -175,7 +175,7 @@ let rcBasesStrict x =
     | 'A' | 'a' -> 'T'
     | 'G' | 'g' -> 'C'
     | 'N' | 'n' -> 'N'
-    | _ -> failwith "XYZ" // (sprintf "bad base '%c'in rcBase" x)
+    | _ -> failwith $"bad base '{x}'in rcBase"
 
 /// Reverse complement of fully ambiguous bases
 let rcBase x =
@@ -214,7 +214,7 @@ let rcBase x =
     | '\n' -> ' '
     | '\r' -> '\r'
     | '-' -> '-'
-    | _ -> failwith "XYW" // (sprintf "bad base '%c'in rcBase" x)
+    | _ -> failwith "bad base '{x}'in rcBase"
 
 /// Reverse complement a DNA sequence
 let revComp (bases : char []) =
@@ -329,7 +329,9 @@ let stripNewlines(s:string) =
             filter (i+1) (j+1)
     
     let finalJ = filter 0 0
+#if !FABLE_COMPILER_RUST
     assert(finalJ = needed) // Should fill up target array exactly
+#endif
     r
 
 /// bulk load a fasta string (containing \n) into a hashtable 
@@ -350,7 +352,7 @@ let readReferenceFromString (fastaString:string) =
     chrs
     |> Seq.map (splitEntry)
     |> Seq.iter (fun (name,seq) -> 
-        if chrSeq.ContainsKey(name) then failwith "XXX" // f "ERROR: duplicate fasta name '%s'" name
+        if chrSeq.ContainsKey(name) then failwith "ERROR: duplicate fasta name '{name}'"
         else chrSeq.Add(name,seq))
     chrSeq
 

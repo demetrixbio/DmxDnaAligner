@@ -233,17 +233,9 @@ let gLocal log (pen: Penalties) (query:char []) (subject: char[]) =
             outF.Close()
 #endif
 
-            failwith "XXX"
-            //failwithf
-            //    "ERROR: at cell row=%d,col=%d encountered Undefined From value writing alignerror.txt with inputs"
-            //    row
-            //    col
+            failwith $"ERROR: at cell row={row},col={col} encountered Undefined From value writing alignerror.txt with inputs"
         | _ ->
-            failwith "XXX"
-            //failwithf
-            //    "ERROR: at cell row=%d,col=%d encountered illegal value From value writing alignerror.txt with inputs"
-            //    row
-            //    col
+            failwith $"ERROR: at cell row={row},col={col} encountered illegal value From value writing alignerror.txt with inputs"
 
     emitAlign maxScoreRow (qL) []
 
