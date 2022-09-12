@@ -1,9 +1,9 @@
 /// Non biology routes that are helpful for general process / data ops, some bio IO routines
 module utils
-open std
-open Imports
+
 open System
 open System.Text
+
 type Platform = UNIX | NOTUNIX | FABLE
 #if FABLE_COMPILER
 let platform = FABLE
@@ -285,7 +285,7 @@ let revCompDeprecated (bases : char []) =
         | '\n' -> ' '
         | '\r' -> '\r'
         | '-' -> '-'
-        | _ -> failwith "XXX" // (sprintf "bad base '%c'in rcBase" x)
+        | _ -> failwith $"bad base '{x}' in rcBase"
 
     let comp = Array.map (rcBase) bases
     Array.rev(comp)

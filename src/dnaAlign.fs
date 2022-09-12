@@ -3,8 +3,6 @@ module DnaAlign
 // open Dna
 open System
 open utils
-open std
-open Imports
 
 let array2DInit n m f =
     let arr = Array.init n (fun i ->
