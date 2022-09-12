@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="src/std.fs" />
-    <Compile Include="src/imports.fs" />
+    <Compile Include="src/File.fs" />
     <Compile Include="src/utils.fs" />
     <Compile Include="src/biolib.fs" />
     <!-- <Compile Include="dna.fs" /> -->

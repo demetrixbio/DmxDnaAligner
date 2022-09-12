@@ -7,5 +7,5 @@ edition = "2021"
 fable_library_rust = { path = "./fable_modules/fable-library-rust" }
 
 [profile.release]
-opt-level = 3
-lto = "thin"
+codegen-units = 1
+lto = true

@@ -6,13 +6,6 @@ open System.IO
 open System.Text
 open System.Collections.Generic
 open utils
-open std
-open std.string
-open std.vec
-open std.io
-open Imports
-open Imports.Imports
-open Imports.Native
 
 let bases = ['A' ; 'T' ; 'C' ; 'G']
 
